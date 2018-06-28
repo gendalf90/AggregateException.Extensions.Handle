@@ -29,6 +29,7 @@ catch(AggregateException ae)
 {
   ae.Flatten()
     .AddHandlers()
+    //Handling occur in the order which handlers are defined
     .Handler<ArgumentNullException>(e =>
     {
       Console.WriteLine(e.Message);
