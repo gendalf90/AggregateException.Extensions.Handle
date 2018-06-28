@@ -66,3 +66,19 @@ catch(AggregateException ae)
     .Handle();
 }
 ```
+
+If you want to just handle exception without processing write like this:
+
+```csharp
+try
+{
+  SomeMethod();
+}
+catch(AggregateException ae)
+{
+  ae.Flatten()
+    .AddHandlers()
+    .Handler<IngnoredException>()
+    .Handle();
+}
+```
