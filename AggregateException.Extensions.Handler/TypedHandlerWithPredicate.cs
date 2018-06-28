@@ -2,7 +2,7 @@
 
 namespace AggregateExceptionExtensions.Handler
 {
-    internal class TypedHandlerWithPredicate<T> : TypedHandler<T> where T : Exception
+    internal class TypedHandlerWithPredicate<T> : TypedHandlerBase<T> where T : Exception
     {
         private readonly Func<T, bool> predicate;
 

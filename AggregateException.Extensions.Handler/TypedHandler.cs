@@ -2,20 +2,11 @@
 
 namespace AggregateExceptionExtensions.Handler
 {
-    internal abstract class TypedHandler<T> : IHandler where T : Exception
+    internal class TypedHandler<T> : TypedHandlerBase<T> where T : Exception
     {
-        public bool TryHandle(Exception exception)
+        protected override bool TryHandleInternal(T exception)
         {
-            var exceptionOfCurrentType = exception as T;
-
-            if (exceptionOfCurrentType != null)
-            {
-                return TryHandleInternal(exceptionOfCurrentType);
-            }
-
-            return false;
+            return true;
         }
-
-        protected abstract bool TryHandleInternal(T exception);
     }
 }

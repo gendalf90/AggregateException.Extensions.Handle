@@ -2,7 +2,7 @@
 
 namespace AggregateExceptionExtensions.Handler
 {
-    internal class TypedHandlerWithAction<T> : TypedHandler<T> where T : Exception
+    internal class TypedHandlerWithAction<T> : TypedHandlerBase<T> where T : Exception
     {
         private readonly Action<T> action;
 
