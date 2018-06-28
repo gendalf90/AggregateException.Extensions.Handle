@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
     <RootNamespace>AggregateExceptionExtensions.Handler</RootNamespace>
+    <Authors>Roman Boykov</Authors>
+    <PackageProjectUrl>https://github.com/gendalf90/AggregateException.Extensions.Handler</PackageProjectUrl>
+    <RepositoryUrl></RepositoryUrl>
   </PropertyGroup>
 
 </Project>
