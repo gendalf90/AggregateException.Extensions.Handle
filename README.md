@@ -30,11 +30,11 @@ catch(AggregateException ae)
   ae.Flatten()
     .AddHandlers()
     //Handling occur in the order which handlers are defined
-    .Handler<ArgumentNullException>(e =>
+    .Action<ArgumentNullException>(e =>
     {
       Console.WriteLine(e.Message);
     })
-    .Handler<ArgumentException>(e =>
+    .Action<ArgumentException>(e =>
     {
       Console.WriteLine(e.Message);
     })
@@ -53,7 +53,7 @@ catch(AggregateException ae)
 {
   ae.Flatten()
     .AddHandlers()
-    .Handler<ArgumentException>(e =>
+    .Predicate<ArgumentException>(e =>
     {
       if(e.ParamName != "someParameter")
       {
@@ -78,7 +78,7 @@ catch(AggregateException ae)
 {
   ae.Flatten()
     .AddHandlers()
-    .Handler<IngnoredException>()
+    .Ignore<OutOfMemoryException>()
     .Handle();
 }
 ```
