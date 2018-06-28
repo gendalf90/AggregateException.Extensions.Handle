@@ -10,7 +10,7 @@ Install from [NuGet](https://www.nuget.org/packages/AggregateException.Extension
 Install-Package AggregateException.Extensions.Handler
 ```
 
-Use namespase:
+Use namespace:
 
 ```csharp
 using AggregateExceptionExtensions.Handler;
