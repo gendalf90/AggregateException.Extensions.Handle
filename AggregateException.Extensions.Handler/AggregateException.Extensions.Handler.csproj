@@ -6,6 +6,8 @@
     <Authors>Roman Boykov</Authors>
     <PackageProjectUrl>https://github.com/gendalf90/AggregateException.Extensions.Handler</PackageProjectUrl>
     <RepositoryUrl></RepositoryUrl>
+    <Version>1.0.1</Version>
+    <PackageTags>AggregateException Handle Extension</PackageTags>
   </PropertyGroup>
 
 </Project>
