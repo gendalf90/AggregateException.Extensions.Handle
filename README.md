@@ -23,7 +23,7 @@ If you want to handle exception which aggregated in AggregateException you can w
 ```csharp
 try
 {
-  SomeMethodAsync();
+  SomeMethod();
 }
 catch(AggregateException ae)
 {
@@ -47,7 +47,7 @@ Also, you can specify some condition for handling of the current type:
 ```csharp
 try
 {
-  SomeMethodAsync();
+  SomeMethod();
 }
 catch(AggregateException ae)
 {
@@ -55,7 +55,7 @@ catch(AggregateException ae)
     .AddHandlers()
     .Handler<ArgumentException>(e =>
     {
-      if(e.ParamName != "asdf")
+      if(e.ParamName != "someParameter")
       {
         return false;
       }
