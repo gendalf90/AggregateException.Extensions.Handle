@@ -2,7 +2,7 @@
 
 namespace AggregateExceptionExtensions.Handler
 {
-    internal class TypedHandler<T> : TypedHandlerBase<T> where T : Exception
+    internal class TypedEmptyHandler<T> : TypedHandlerBase<T> where T : Exception
     {
         protected override bool TryHandleInternal(T exception)
         {

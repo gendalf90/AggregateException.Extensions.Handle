@@ -6,8 +6,9 @@
     <Authors>Roman Boykov</Authors>
     <PackageProjectUrl>https://github.com/gendalf90/AggregateException.Extensions.Handler</PackageProjectUrl>
     <RepositoryUrl></RepositoryUrl>
-    <Version>1.1.0</Version>
-    <PackageTags>AggregateException Handle Extension</PackageTags>
+    <Version>1.2.0</Version>
+    <PackageTags>aggregateexception handle extension</PackageTags>
+    <Description>Extension of AggregateException for strongly typed handling</Description>
   </PropertyGroup>
 
 </Project>

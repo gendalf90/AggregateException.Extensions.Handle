@@ -5,34 +5,44 @@ namespace AggregateExceptionExtensions.Handler
     internal class HandlerBuilder : IHandlerBuilder
     {
         private readonly ChainHandler chainHandler = new ChainHandler();
-        private readonly AggregateException exception;
+        private readonly AggregateException aggregateException;
 
-        public HandlerBuilder(AggregateException exception)
+        public HandlerBuilder(AggregateException aggregateException)
         {
-            this.exception = exception;
+            this.aggregateException = aggregateException;
         }
 
         public void Handle()
         {
-            exception.Handle(chainHandler.TryHandle);
+            aggregateException.Handle(chainHandler.TryHandle);
         }
 
-        public IHandlerBuilder Ignore<T>() where T : Exception
+        public IHandlerBuilder Empty<T>() where T : Exception
         {
-            var handler = new TypedHandler<T>();
+            var handler = new TypedEmptyHandler<T>();
             chainHandler.AddHandler(handler);
             return this;
         }
 
         public IHandlerBuilder Action<T>(Action<T> action) where T : Exception
         {
+            if(action == null)
+            {
+                throw new ArgumentNullException(nameof(action));
+            }
+
             var handler = new TypedHandlerWithAction<T>(action);
             chainHandler.AddHandler(handler);
             return this;
         }
 
-        public IHandlerBuilder Predicate<T>(Func<T, bool> predicate) where T : Exception
+        public IHandlerBuilder Condition<T>(Func<T, bool> predicate) where T : Exception
         {
+            if(predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+
             var handler = new TypedHandlerWithPredicate<T>(predicate);
             chainHandler.AddHandler(handler);
             return this;

@@ -4,9 +4,14 @@ namespace AggregateExceptionExtensions.Handler
 {
     public static class AggregateExceptionExtensions
     {
-        public static IHandlerBuilder AddHandlers(this AggregateException exception)
+        public static IHandlerBuilder AddHandlers(this AggregateException aggregateException)
         {
-            return new HandlerBuilder(exception);
+            if(aggregateException == null)
+            {
+                throw new ArgumentNullException(nameof(aggregateException));
+            }
+
+            return new HandlerBuilder(aggregateException);
         }
     }
 }
