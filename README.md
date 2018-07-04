@@ -53,7 +53,7 @@ catch(AggregateException ae)
 {
   ae.Flatten()
     .AddHandlers()
-    .Predicate<ArgumentException>(e =>
+    .Condition<ArgumentException>(e =>
     {
       if(e.ParamName != "someParameter")
       {
@@ -78,7 +78,7 @@ catch(AggregateException ae)
 {
   ae.Flatten()
     .AddHandlers()
-    .Ignore<OutOfMemoryException>()
+    .Empty<OutOfMemoryException>()
     .Handle();
 }
 ```
